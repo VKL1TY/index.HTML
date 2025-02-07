@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <!-- Sidebar Menu for Tabs -->
+        <button class="menu-item" onclick="showTab('growtopia')">Growtopia</button>
+        <button class="menu-item" onclick="showTab('mobile-legends')">Mobile Legends</button>
+        <button class="menu-item" onclick="showTab('zzz')">ZZZ</button>
+        <button class="menu-item" onclick="showTab('valorant')">Valorant</button>
+        <div class="cart">
+            <h3>Cart</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="total-price">0</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+    
+
+    <div class="content">
+        <!-- Growtopia Content -->
+        <div id="growtopia" class="tab-content">
+            <header>
+                <h1>Growtopia Store</h1>
+                <p class="subheader">Available from 07.00 - 20.00</p>
+                <button class="discount-button">77.77% Sell Discount</button>
+            </header>
+            <div class="category-buttons">
+                <button class="category-button" onclick="showSubTab('growtopia', 'wl-dl')">WL & DL</button>
+                <button class="category-button" onclick="showSubTab('growtopia', 'account')">Account</button>
+            </div>
+
+            <!-- Sub-tab content for Growtopia -->
+            <div id="growtopia-wl-dl" class="sub-tab-content">
+                <div class="item-list">
+                    <!-- Item 1 -->
+                    <div class="item">
+                        <img class="item-icon" src="worldlock.png" alt="World Lock Icon">
+                        <div class="item-info">
+                            <h3>World Lock</h3>
+                            <p class="price">$100</p>
+                            <p class="description">Description of World Lock.</p>
+                            <button class="add-to-cart" data-name="World Lock" data-price="100">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="item">
+                        <img class="item-icon" src="gemstone.png" alt="Gemstone Icon">
+                        <div class="item-info">
+                            <h3>Gemstone</h3>
+                            <p class="price">$200</p>
+                            <p class="description">Description of Gemstone.</p>
+                            <button class="add-to-cart" data-name="Gemstone" data-price="200">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="item">
+                        <img class="item-icon" src="rare_seed.png" alt="Rare Seed Icon">
+                        <div class="item-info">
+                            <h3>Rare Seed</h3>
+                            <p class="price">$150</p>
+                            <p class="description">Description of Rare Seed.</p>
+                            <button class="add-to-cart" data-name="Rare seed" data-price="150">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="item">
+                        <img class="item-icon" src="brick.png" alt="Brick Icon">
+                        <div class="item-info">
+                            <h3>Brick</h3>
+                            <p class="price">$50</p>
+                            <p class="description">Description of Brick.</p>
+                            <button class="add-to-cart" data-name="Brick" data-price="50">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="item">
+                        <img class="item-icon" src="building_materials.png" alt="Building Materials Icon">
+                        <div class="item-info">
+                            <h3>Building Materials</h3>
+                            <p class="price">$120</p>
+                            <p class="description">Description of Building Materials.</p>
+                            <button class="add-to-cart" data-name="Building Materials" data-price="120">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="item">
+                        <img class="item-icon" src="super_potion.png" alt="Super Potion Icon">
+                        <div class="item-info">
+                            <h3>Super Potion</h3>
+                            <p class="price">$80</p>
+                            <p class="description">Description of Super Potion.</p>
+                            <button class="add-to-cart" data-name="Super Potion" data-price="80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="growtopia-account" class="sub-tab-content" style="display: none;">
+                <div class="item-list">
+                    <!-- Item 1 -->
+                    <div class="item">
+                        <img class="item-icon" src="account.png" alt="Account Icon">
+                        <div class="item-info">
+                            <h3>Account Package</h3>
+                            <p class="price">$150</p>
+                            <p class="description">Description of Account Package.</p>
+                            <button class="add-to-cart" data-name="Account Package" data-price="150">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="item">
+                        <img class="item-icon" src="vip_account.png" alt="VIP Account Icon">
+                        <div class="item-info">
+                            <h3>VIP Account</h3>
+                            <p class="price">$300</p>
+                            <p class="description">Description of VIP Account.</p>
+                            <button class="add-to-cart" data-name="VIP Account" data-price="300">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="item">
+                        <img class="item-icon" src="legendary_account.png" alt="Legendary Account Icon">
+                        <div class="item-info">
+                            <h3>Legendary Account</h3>
+                            <p class="price">$500</p>
+                            <p class="description">Description of Legendary Account.</p>
+                            <button class="add-to-cart" data-name="Legendary Account" data-price="500">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="item">
+                        <img class="item-icon" src="starter_account.png" alt="Starter Account Icon">
+                        <div class="item-info">
+                            <h3>Starter Account</h3>
+                            <p class="price">$50</p>
+                            <p class="description">Description of Starter Account.</p>
+                            <button class="add-to-cart" data-name="Starter Account" data-price="50">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="item">
+                        <img class="item-icon" src="premium_account.png" alt="Premium Account Icon">
+                        <div class="item-info">
+                            <h3>Premium Account</h3>
+                            <p class="price">$200</p>
+                            <p class="description">Description of Premium Account.</p>
+                            <button class="add-to-cart" data-name="Premium Account" data-price="200">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="item">
+                        <img class="item-icon" src="elite_account.png" alt="Elite Account Icon">
+                        <div class="item-info">
+                            <h3>Elite Account</h3>
+                            <p class="price">$400</p>
+                            <p class="description">Description of Elite Account.</p>
+                            <button class="add-to-cart" data-name="Elite Account" data-price="400">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Legends Content -->
+        <div id="mobile-legends" class="tab-content" style="display: none;">
+            <header>
+                <h1>Mobile Legends Store</h1>
+                <p class="subheader">Available from 07.00 - 22.00</p>
+                <button class="discount-button">50% Sell Discount</button>
+            </header>
+            <div class="category-buttons">
+                <button class="category-button" onclick="showSubTab('mobile-legends', 'diamonds')">Diamonds</button>
+                <button class="category-button" onclick="showSubTab('mobile-legends', 'account')">Account</button>
+            </div>
+
+            <!-- Sub-tab content for Mobile Legends -->
+            <div id="mobile-legends-diamonds" class="sub-tab-content">
+                <div class="item-list">
+                    <!-- Item 1 -->
+                    <div class="item">
+                        <img class="item-icon" src="diamonds.png" alt="Diamonds Icon">
+                        <div class="item-info">
+                            <h3>Diamond Pack</h3>
+                            <p class="price">$10</p>
+                            <p class="description">Description of Diamond Pack.</p>
+                            <button class="add-to-cart" data-name="Diamond Pack" data-price="10">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="item">
+                        <img class="item-icon" src="diamond_bundle.png" alt="Diamond Bundle Icon">
+                        <div class="item-info">
+                            <h3>Diamond Bundle</h3>
+                            <p class="price">$50</p>
+                            <p class="description">Description of Diamond Bundle.</p>
+                            <button class="add-to-cart" data-name="Diamond Bundle" data-price="50">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="item">
+                        <img class="item-icon" src="diamonds_gift.png" alt="Diamonds Gift Icon">
+                        <div class="item-info">
+                            <h3>Gift of Diamonds</h3>
+                            <p class="price">$25</p>
+                            <p class="description">Description of Gift of Diamonds.</p>
+                            <button class="add-to-cart" data-name="Gift of Diamond" data-price="25">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="item">
+                        <img class="item-icon" src="skin.png" alt="Skin Icon">
+                        <div class="item-info">
+                            <h3>Skin Pack</h3>
+                            <p class="price">$15</p>
+                            <p class="description">Description of Skin Pack.</p>
+                            <button class="add-to-cart" data-name="Skin Pack" data-price="15">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="item">
+                        <img class="item-icon" src="hero.png" alt="Hero Icon">
+                        <div class="item-info">
+                            <h3>Hero Package</h3>
+                            <p class="price">$100</p>
+                            <p class="description">Description of Hero Package.</p>
+                            <button class="add-to-cart" data-name="Hero Package" data-price="100">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="item">
+                        <img class="item-icon" src="exp_pack.png" alt="Experience Pack Icon">
+                        <div class="item-info">
+                            <h3>Experience Pack</h3>
+                            <p class="price">$30</p>
+                            <p class="description">Description of Experience Pack.</p>
+                            <button class="add-to-cart" data-name="Experience Pack" data-price="30">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-legends-account" class="sub-tab-content" style="display: none;">
+                <div class="item-list">
+                    <!-- Item 1 -->
+                    <div class="item">
+                        <img class="item-icon" src="ml_account.png" alt="Mobile Legends Account Icon">
+                        <div class="item-info">
+                            <h3>Account</h3>
+                            <p class="price">$50</p>
+                            <p class="description">Description of Mobile Legends Account.</p>
+                            <button class="add-to-cart" data-name="Mobile Legends Account" data-price="50">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="item">
+                        <img class="item-icon" src="premium_ml_account.png" alt="Premium Mobile Legends Account Icon">
+                        <div class="item-info">
+                            <h3>Premium Account</h3>
+                            <p class="price">$120</p>
+                            <p class="description">Description of Premium Account.</p>
+                            <button class="add-to-cart" data-name="Premium Account" data-price="120">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="item">
+                        <img class="item-icon" src="legendary_ml_account.png" alt="Legendary Mobile Legends Account Icon">
+                        <div class="item-info">
+                            <h3>Legendary Account</h3>
+                            <p class="price">$250</p>
+                            <p class="description">Description of Legendary Account.</p>
+                            <button class="add-to-cart" data-name="Legendary Account" data-price="250">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="item">
+                        <img class="item-icon" src="ml_starter_account.png" alt="Mobile Legends Starter Account Icon">
+                        <div class="item-info">
+                            <h3>Starter Account</h3>
+                            <p class="price">$40</p>
+                            <p class="description">Description of Starter Account.</p>
+                            <button class="add-to-cart" data-name="Starter Account" data-price="40">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="item">
+                        <img class="item-icon" src="ml_vip_account.png" alt="VIP Mobile Legends Account Icon">
+                        <div class="item-info">
+                            <h3>VIP Account</h3>
+                            <p class="price">$200</p>
+                            <p class="description">Description of VIP Account.</p>
+                            <button class="add-to-cart" data-name="VIP Account" data-price="200">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="item">
+                        <img class="item-icon" src="exclusive_ml_account.png" alt="Exclusive Mobile Legends Account Icon">
+                        <div class="item-info">
+                            <h3>Exclusive Account</h3>
+                            <p class="price">$350</p>
+                            <p class="description">Description of Exclusive Account.</p>
+                            <button class="add-to-cart" data-name="Exclusive Account" data-price="350">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZZZ Content -->
+        <div id="zzz" class="tab-content" style="display: none;">
+            <header>
+                <h1>ZZZ Store</h1>
+                <p class="subheader">Available from 09.00 - 18.00</p>
+                <button class="discount-button">20% Sell Discount</button>
+            </header>
+            <div class="category-buttons">
+                <button class="category-button" onclick="showSubTab('zzz', 'special')">Special Offers</button>
+                <button class="category-button" onclick="showSubTab('zzz', 'accounts')">Accounts</button>
+            </div>
+
+            <!-- Sub-tab content for ZZZ -->
+            <div id="zzz-special" class="sub-tab-content">
+                <div class="item-list">
+                    <!-- Item 1 -->
+                    <div class="item">
+                        <img class="item-icon" src="special_offer.png" alt="Special Offer Icon">
+                        <div class="item-info">
+                            <h3>Special Item</h3>
+                            <p class="price">$200</p>
+                            <p class="description">Description of Special Item.</p>
+                            <button class="add-to-cart" data-name="Special Item" data-price="200">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="item">
+                        <img class="item-icon" src="limited_time_item.png" alt="Limited Time Item Icon">
+                        <div class="item-info">
+                            <h3>Limited Time Item</h3>
+                            <p class="price">$180</p>
+                            <p class="description">Description of Limited Time Item.</p>
+                            <button class="add-to-cart" data-name="Limited Time Item" data-price="180">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="item">
+                        <img class="item-icon" src="exclusive_offer.png" alt="Exclusive Offer Icon">
+                        <div class="item-info">
+                            <h3>Exclusive Offer</h3>
+                            <p class="price">$250</p>
+                            <p class="description">Description of Exclusive Offer.</p>
+                            <button class="add-to-cart" data-name="Exclusive Offer" data-price="250">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="item">
+                        <img class="item-icon" src="special_skin.png" alt="Special Skin Icon">
+                        <div class="item-info">
+                            <h3>Special Skin</h3>
+                            <p class="price">$150</p>
+                            <p class="description">Description of Special Skin.</p>
+                            <button class="add-to-cart" data-name="Special Skin" data-price="150">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="item">
+                        <img class="item-icon" src="special_buff.png" alt="Special Buff Icon">
+                        <div class="item-info">
+                            <h3>Special Buff</h3>
+                            <p class="price">$50</p>
+                            <p class="description">Description of Special Buff.</p>
+                            <button class="add-to-cart" data-name="Special Buff" data-price="50">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="item">
+                        <img class="item-icon" src="rare_item.png" alt="Rare Item Icon">
+                        <div class="item-info">
+                            <h3>Rare Item</h3>
+                            <p class="price">$100</p>
+                            <p class="description">Description of Rare Item.</p>
+                            <button class="add-to-cart" data-name="Rare Item" data-price="100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="zzz-accounts" class="sub-tab-content" style="display: none;">
+                <div class="item-list">
+                    <!-- Item 1 -->
+                    <div class="item">
+                        <img class="item-icon" src="zzz_account.png" alt="ZZZ Account Icon">
+                        <div class="item-info">
+                            <h3>ZZZ Account Package</h3>
+                            <p class="price">$300</p>
+                            <p class="description">Description of ZZZ Account Package.</p>
+                            <button class="add-to-cart" data-name="ZZZ Account Package" data-price="300">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="item">
+                        <img class="item-icon" src="zzz_vip_account.png" alt="VIP ZZZ Account Icon">
+                        <div class="item-info">
+                            <h3>VIP ZZZ Account</h3>
+                            <p class="price">$500</p>
+                            <p class="description">Description of VIP ZZZ Account.</p>
+                            <button class="add-to-cart" data-name="VIP ZZZ Account" data-price="500">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="item">
+                        <img class="item-icon" src="exclusive_zzz_account.png" alt="Exclusive ZZZ Account Icon">
+                        <div class="item-info">
+                            <h3>Exclusive ZZZ Account</h3>
+                            <p class="price">$700</p>
+                            <p class="description">Description of Exclusive ZZZ Account.</p>
+                            <button class="add-to-cart" data-name="Exclusive ZZZ Account" data-price="700">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="item">
+                        <img class="item-icon" src="premium_zzz_account.png" alt="Premium ZZZ Account Icon">
+                        <div class="item-info">
+                            <h3>Premium ZZZ Account</h3>
+                            <p class="price">$400</p>
+                            <p class="description">Description of Premium ZZZ Account.</p>
+                            <button class="add-to-cart" data-name="Premium ZZZ Account" data-price="400">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="item">
+                        <img class="item-icon" src="starter_zzz_account.png" alt="Starter ZZZ Account Icon">
+                        <div class="item-info">
+                            <h3>Starter ZZZ Account</h3>
+                            <p class="price">$200</p>
+                            <p class="description">Description of Starter ZZZ Account.</p>
+                            <button class="add-to-cart" data-name="Starter ZZZ Account" data-price="200">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="item">
+                        <img class="item-icon" src="legendary_zzz_account.png" alt="Legendary ZZZ Account Icon">
+                        <div class="item-info">
+                            <h3>Legendary ZZZ Account</h3>
+                            <p class="price">$600</p>
+                            <p class="description">Description of Legendary ZZZ Account.</p>
+                            <button class="add-to-cart" data-name="Legendary ZZZ Account" data-price="600">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Valorant Content -->
+        <div id="valorant" class="tab-content" style="display: none;">
+            <header>
+                <h1>Valorant Store</h1>
+                <p class="subheader">Available from 10.00 - 20.00</p>
+                <button class="discount-button">50% Sell Discount</button>
+            </header>
+            <div class="category-buttons">
+                <button class="category-button" onclick="showSubTab('valorant', 'weapon-skins')">Weapon Skins</button>
+                <button class="category-button" onclick="showSubTab('valorant', 'agents')">Agents</button>
+            </div>
+
+            <!-- Sub-tab content for Valorant -->
+            <div id="valorant-weapon-skins" class="sub-tab-content">
+                <div class="item-list">
+                    <!-- Item 1 -->
+                    <div class="item">
+                        <img class="item-icon" src="vandal_skin.png" alt="Vandal Skin Icon">
+                        <div class="item-info">
+                            <h3>Vandal Skin</h3>
+                            <p class="price">$50</p>
+                            <p class="description">Description of Vandal Skin.</p>
+                            <button class="add-to-cart" data-name="Vandal Skin" data-price="50">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="item">
+                        <img class="item-icon" src="phantom_skin.png" alt="Phantom Skin Icon">
+                        <div class="item-info">
+                            <h3>Phantom Skin</h3>
+                            <p class="price">$60</p>
+                            <p class="description">Description of Phantom Skin.</p>
+                            <button class="add-to-cart" data-name="Phantom Skin" data-price="60">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="item">
+                        <img class="item-icon" src="operator_skin.png" alt="Operator Skin Icon">
+                        <div class="item-info">
+                            <h3>Operator Skin</h3>
+                            <p class="price">$70</p>
+                            <p class="description">Description of Operator Skin.</p>
+                            <button class="add-to-cart" data-name="Operator Skin" data-price="70">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="item">
+                        <img class="item-icon" src="bucky_skin.png" alt="Bucky Skin Icon">
+                        <div class="item-info">
+                            <h3>Bucky Skin</h3>
+                            <p class="price">$40</p>
+                            <p class="description">Description of Bucky Skin.</p>
+                            <button class="add-to-cart" data-name="Bucky Skin" data-price="40">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="item">
+                        <img class="item-icon" src="classic_skin.png" alt="Classic Skin Icon">
+                        <div class="item-info">
+                            <h3>Classic Skin</h3>
+                            <p class="price">$30</p>
+                            <p class="description">Description of Classic Skin.</p>
+                            <button class="add-to-cart" data-name="Classic Skin" data-price="30">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="item">
+                        <img class="item-icon" src="marshal_skin.png" alt="Marshal Skin Icon">
+                        <div class="item-info">
+                            <h3>Marshal Skin</h3>
+                            <p class="price">$45</p>
+                            <p class="description">Description of Marshal Skin.</p>
+                            <button class="add-to-cart" data-name="Marshal Skin" data-price="45">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="valorant-agents" class="sub-tab-content" style="display: none;">
+                <div class="item-list">
+                    <!-- Item 1 -->
+                    <div class="item">
+                        <img class="item-icon" src="phoenix_agent.png" alt="Phoenix Agent Icon">
+                        <div class="item-info">
+                            <h3>Phoenix Agent</h3>
+                            <p class="price">$200</p>
+                            <p class="description">Description of Phoenix Agent.</p>
+                            <button class="add-to-cart" data-name="Phoenix Agent" data-price="200">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="item">
+                        <img class="item-icon" src="jett_agent.png" alt="Jett Agent Icon">
+                        <div class="item-info">
+                            <h3>Jett Agent</h3>
+                            <p class="price">$250</p>
+                            <p class="description">Description of Jett Agent.</p>
+                            <button class="add-to-cart" data-name="Jett Agent" data-price="250">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="item">
+                        <img class="item-icon" src="sage_agent.png" alt="Sage Agent Icon">
+                        <div class="item-info">
+                            <h3>Sage Agent</h3>
+                            <p class="price">$230</p>
+                            <p class="description">Description of Sage Agent.</p>
+                            <button class="add-to-cart" data-name="Sage Agent" data-price="230">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="item">
+                        <img class="item-icon" src="reyna_agent.png" alt="Reyna Agent Icon">
+                        <div class="item-info">
+                            <h3>Reyna Agent</h3>
+                            <p class="price">$300</p>
+                            <p class="description">Description of Reyna Agent.</p>
+                            <button class="add-to-cart" data-name="Reyna Agent" data-price="300">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="item">
+                        <img class="item-icon" src="breach_agent.png" alt="Breach Agent Icon">
+                        <div class="item-info">
+                            <h3>Breach Agent</h3>
+                            <p class="price">$280</p>
+                            <p class="description">Description of Breach Agent.</p>
+                            <button class="add-to-cart" data-name="Breach Agent" data-price="280">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="item">
+                        <img class="item-icon" src="cypher_agent.png" alt="Cypher Agent Icon">
+                        <div class="item-info">
+                            <h3>Cypher Agent</h3>
+                            <p class="price">$220</p>
+                            <p class="description">Description of Cypher Agent.</p>
+                            <button class="add-to-cart" data-name="Cypher Agent" data-price="220">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script1 copy.js"></script>
+</body>
+</html>
+
