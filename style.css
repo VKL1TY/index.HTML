@@ -1,0 +1,246 @@
+/* Reset and Base Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #ffe4ec;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Sidebar Menu Items */
+.menu-item {
+    width: 100%;
+    padding: 15px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: left;
+    color: #555;
+    transition: background-color 0.2s;
+}
+
+.menu-item.active, .menu-item:hover {
+    background-color: #d81b60;
+    color: white;
+}
+
+/* Content Styling */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.subheader {
+    font-size: 14px;
+    color: #666;
+}
+
+.discount-button {
+    background-color: #d81b60;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Category Buttons */
+.category-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.category-button {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.category-button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Item List */
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+.item-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.price, .description {
+    font-size: 14px;
+    color: #777;
+}
+
+.rating {
+    font-size: 16px;
+    color: gold;
+}
+
+/* Unique Styling for Each Tab */
+
+/* Growtopia Tab */
+#growtopia.active-tab {
+    background-color: #007e8f; /* Light blue */
+}
+
+#growtopia header {
+    background-color: #4dd0e1; /* Teal */
+}
+
+#growtopia .discount-button {
+    background-color: #0097a7; /* Dark teal */
+}
+
+#growtopia .category-button {
+    background-color: #b2ebf2; /* Light teal */
+    color: #00796b;
+}
+
+/* Mobile Legends Tab */
+#mobile-legends.active-tab {
+    background-color: #fff3e0; /* Light orange */
+}
+
+#mobile-legends header {
+    background-color: #ffab40; /* Orange */
+}
+
+#mobile-legends .discount-button {
+    background-color: #ff6f00; /* Dark orange */
+}
+
+#mobile-legends .category-button {
+    background-color: #ffe0b2; /* Light orange */
+    color: #f57c00;
+}
+
+/* ZZZ Tab */
+#zzz.active-tab {
+    background-color: #f3e5f5; /* Light purple */
+}
+
+#zzz header {
+    background-color: #ba68c8; /* Purple */
+}
+
+#zzz .discount-button {
+    background-color: #8e24aa; /* Dark purple */
+}
+
+#zzz .category-button {
+    background-color: #e1bee7; /* Light purple */
+    color: #7b1fa2;
+}
+
+/* Valorant Tab */
+#valorant.active-tab {
+    background-color: #ffebee; /* Light pink */
+}
+
+#valorant header {
+    background-color: #e57373; /* Red */
+}
+
+#valorant .discount-button {
+    background-color: #d32f2f; /* Dark red */
+}
+
+#valorant .category-button {
+    background-color: #ffcdd2; /* Light red */
+    color: #c62828;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    header {
+        text-align: center;
+    }
+}
+
+.sub-tab-content {
+    display: none;
+}
+
+.sub-tab-content.active {
+    display: block;
+}
+
